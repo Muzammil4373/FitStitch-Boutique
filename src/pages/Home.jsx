@@ -5,9 +5,8 @@ import { MapPin, Navigation } from 'lucide-react';
 import HeroSlider from '../components/HeroSlider.jsx';
 import ProductCard from '../components/ProductCard.jsx';
 import QuickViewModal from '../components/QuickViewModal.jsx';
-import ReviewCard from '../components/ReviewCard.jsx';
 import StitchDivider from '../components/StitchDivider.jsx';
-import { products, categories, reviews } from '../data/products.js';
+import { products, categories } from '../data/products.js';
 
 function SectionHeading({ eyebrow, title, action }) {
   return (
@@ -28,16 +27,14 @@ export default function Home() {
   const [quickView, setQuickView] = useState(null);
 
   const newArrivals = products.filter((p) => p.isNewArrival).slice(0, 4);
-  const featured = products.filter((p) => p.isFeatured).slice(0, 3);
   const trending = products.filter((p) => p.isTrending).slice(0, 4);
-  const bestSellers = [...products].reverse().slice(0, 4);
 
   return (
     <div>
       <HeroSlider />
 
       {/* New Arrivals */}
-      <section className="mx-auto max-w-7xl px-6 md:px-10 py-24">
+      <section className="mx-auto max-w-7xl px-6 md:px-10 py-20">
         <SectionHeading
           eyebrow="Just In"
           title="New Arrivals"
@@ -50,19 +47,19 @@ export default function Home() {
             </Link>
           }
         />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-12">
           {newArrivals.map((p) => (
             <ProductCard key={p.id} product={p} onQuickView={setQuickView} />
           ))}
         </div>
       </section>
 
-      {/* Featured Collection */}
-      <section className="bg-beige-light py-24">
+      {/* Premium Co-Ord Sets (replaces Featured Collection) */}
+      <section className="bg-beige-light py-20">
         <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <SectionHeading eyebrow="Curated" title="Featured Collection — Premium Co-Ord Sets" />
-          <div className="grid md:grid-cols-3 gap-8">
-            {featured.map((p) => (
+          <SectionHeading eyebrow="Curated" title="Premium Co-Ord Sets" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-12">
+            {products.slice(0, 4).map((p) => (
               <ProductCard key={p.id} product={p} onQuickView={setQuickView} />
             ))}
           </div>
@@ -70,9 +67,9 @@ export default function Home() {
       </section>
 
       {/* Trending */}
-      <section className="mx-auto max-w-7xl px-6 md:px-10 py-24">
+      <section className="mx-auto max-w-7xl px-6 md:px-10 py-20">
         <SectionHeading eyebrow="Right Now" title="Trending Collection" />
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-10 md:gap-x-6 md:gap-y-12">
           {trending.map((p) => (
             <ProductCard key={p.id} product={p} onQuickView={setQuickView} />
           ))}
@@ -80,9 +77,9 @@ export default function Home() {
       </section>
 
       {/* Shop by Category */}
-      <section className="mx-auto max-w-7xl px-6 md:px-10 pb-24">
+      <section className="mx-auto max-w-7xl px-6 md:px-10 pb-20">
         <SectionHeading eyebrow="Explore" title="Shop by Category" />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {categories.map((cat, i) => (
             <motion.div
               key={cat.id}
@@ -100,8 +97,8 @@ export default function Home() {
                   alt={cat.name}
                   className="h-full w-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-luxe"
                 />
-                <div className="absolute inset-0 flex items-end p-6">
-                  <span className="font-display text-xl text-ivory">
+                <div className="absolute inset-0 flex items-end p-4 md:p-6">
+                  <span className="font-display text-lg md:text-xl text-ivory">
                     {cat.name}
                   </span>
                 </div>
@@ -111,44 +108,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Best Sellers */}
-      <section className="bg-charcoal text-ivory py-24">
-        <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <div className="flex items-end justify-between mb-10">
-            <div>
-              <p className="text-[12px] uppercase tracking-widest2 text-gold mb-3">
-                Loved by Many
-              </p>
-              <h2 className="font-display text-3xl md:text-4xl">Best Selling Sets</h2>
-              <StitchDivider className="w-16 mt-4" />
-            </div>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12">
-            {bestSellers.map((p) => (
-              <div key={p.id} className="[&_h3]:text-ivory [&_p]:text-ivory/50 [&_span]:text-ivory [&_button]:border-ivory/40 [&_button]:text-ivory">
-                <ProductCard product={p} onQuickView={setQuickView} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Reviews */}
-      <section id="reviews" className="py-24">
-        <div className="mx-auto max-w-7xl px-6 md:px-10">
-          <SectionHeading eyebrow="Testimonials" title="Customer Reviews" />
-        </div>
-        <div className="rail flex gap-6 overflow-x-auto px-6 md:px-10 pb-4 snap-x">
-          {reviews.map((r) => (
-            <div key={r.id} className="snap-start">
-              <ReviewCard review={r} />
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Business Partner CTA */}
-      <section className="bg-beige-light py-24">
+      <section className="bg-beige-light py-20">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <p className="text-[12px] uppercase tracking-widest2 text-gold-dark mb-3">
             Grow With Us
@@ -170,21 +131,22 @@ export default function Home() {
       </section>
 
       {/* Store Location */}
-      <section className="mx-auto max-w-7xl px-6 md:px-10 py-24">
+      <section className="mx-auto max-w-7xl px-6 md:px-10 py-20">
         <SectionHeading eyebrow="Visit Us" title="Our Store" />
-        <div className="grid md:grid-cols-2 gap-8 items-stretch">
-          <div className="rounded-sm overflow-hidden aspect-video md:aspect-auto min-h-[320px]">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+          {/* Map — full width, contained, no overflow */}
+          <div className="w-full rounded-sm overflow-hidden" style={{ height: '340px' }}>
             <iframe
               title="FitStitch Boutique Store Location"
               src="https://www.google.com/maps?q=Blue+Diamond+Spring+Leaf+Tower+Dahisar+East+Mumbai&output=embed"
-              width="60%"
+              width="100%"
               height="100%"
-              style={{ border: 0 }}
+              style={{ border: 0, display: 'block' }}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
-          <div className="bg-beige-light rounded-sm p-8 md:p-10 flex flex-col justify-center">
+          <div className="bg-beige-light rounded-sm p-6 md:p-10 flex flex-col justify-center">
             <MapPin className="text-gold-dark mb-4" size={22} />
             <h3 className="font-display text-2xl mb-3">FitStitch Boutique</h3>
             <p className="text-charcoal/60 leading-relaxed mb-8">
