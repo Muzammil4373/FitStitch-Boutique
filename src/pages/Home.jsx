@@ -177,7 +177,7 @@ export default function Home() {
             <iframe
               title="FitStitch Boutique Store Location"
               src="https://www.google.com/maps?q=Blue+Diamond+Spring+Leaf+Tower+Dahisar+East+Mumbai&output=embed"
-              width="100%"
+              width="60%"
               height="100%"
               style={{ border: 0 }}
               loading="lazy"
