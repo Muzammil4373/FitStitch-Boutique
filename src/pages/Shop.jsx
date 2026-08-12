@@ -77,15 +77,15 @@ export default function Shop() {
 
         <div className="flex items-center gap-2">
           <SlidersHorizontal size={14} className="text-charcoal/50" />
-          <select
-            value={sort}
-            onChange={(e) => setSort(e.target.value)}
-            className="bg-transparent text-[13px] outline-none border-b border-beige-dark py-1"
-          >
-            <option value="featured">Sort: Featured</option>
-            <option value="newest">Sort: Newest</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
+        <select
+  value={sort}
+  onChange={(e) => setSort(e.target.value)}
+  className="bg-transparent text-[13px] outline-none border-b border-beige-dark py-1 max-w-[160px] truncate"
+>
+            <option value="featured">Sort:Featured</option>
+            <option value="newest">Sort:Newest</option>
+            <option value="price-asc">Price:Low to High</option>
+            <option value="price-desc">Price:High to Low</option>
           </select>
         </div>
       </div>

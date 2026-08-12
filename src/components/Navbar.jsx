@@ -7,11 +7,7 @@ import { buildWhatsAppGeneralLink } from '../utils/whatsapp.js';
 
 const links = [
   { to: '/', label: 'Home' },
-  { to: '/shop?collection=new-arrivals', label: 'New Arrivals' },
   { to: '/shop', label: 'Collections' },
-  // { to: '/shop?filter=best-sellers', label: 'Best Sellers' },
-  // { to: '/#reviews', label: 'Reviews' },
-  { to: '/business-partner', label: 'Business Partner' },
   { to: '/contact', label: 'Contact' },
 ];
 

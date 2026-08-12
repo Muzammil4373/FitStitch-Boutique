@@ -39,7 +39,7 @@ export default function BusinessPartner() {
   }
 
   const fieldClass =
-    'w-full border-b border-beige-dark bg-transparent py-2.5 outline-none focus:border-gold transition-colors';
+  'w-full max-w-full border-b border-beige-dark bg-transparent py-2.5 outline-none focus:border-gold transition-colors';
   const labelClass = 'text-[12px] uppercase tracking-widest2 text-charcoal/60 block mb-2';
 
   return (
@@ -87,12 +87,7 @@ export default function BusinessPartner() {
         </div>
         <div>
           <label className={labelClass}>Business Type</label>
-          <select required name="businessType" value={form.businessType} onChange={handleChange} className={fieldClass}>
-            <option value="" disabled>Select one</option>
-            {businessTypes.map((t) => (
-              <option key={t} value={t}>{t}</option>
-            ))}
-          </select>
+          <select required name="businessType" value={form.businessType} onChange={handleChange} className={`${fieldClass} truncate`}/>
         </div>
         <div className="sm:col-span-2">
           <label className={labelClass}>Message</label>
