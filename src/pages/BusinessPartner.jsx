@@ -11,7 +11,7 @@ const initialForm = {
   pincode: '',
   phone: '',
   email: '',
-  businessType: '',
+  businessTypes: '',
   message: '',
 };
 
@@ -87,7 +87,7 @@ export default function BusinessPartner() {
         </div>
         <div>
           <label className={labelClass}>Business Type</label>
-          <select required name="businessType" value={form.businessType} onChange={handleChange} className={`${fieldClass} truncate`}/>
+          <select required name="businessType" value={form.businessTypes} onChange={handleChange} className={`${fieldClass} truncate`}/>
         </div>
         <div className="sm:col-span-2">
           <label className={labelClass}>Message</label>
