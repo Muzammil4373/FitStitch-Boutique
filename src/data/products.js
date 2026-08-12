@@ -1,7 +1,6 @@
 // Placeholder catalog data.
 // Once the backend (Products API) is live, replace these arrays with
-// axios calls in src/utils/api.js — component code will not need to change
-// as long as the shape (id, title, price, images, sizes...) stays the same.
+// axios calls in src/utils/api.js
 
 export const categories = [
   { id: 'coord-sets', name: 'Co-Ord Sets' },
@@ -21,7 +20,7 @@ export const products = [
     discount: 15,
     description:
       'A fluid silk-blend blazer and tailored trouser set finished with mother-of-pearl buttons. Cut for an easy, elongated silhouette.',
-    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    sizes: ['M', 'L', 'XL'],
     stock: 8,
     isFeatured: true,
     isTrending: true,
@@ -41,7 +40,7 @@ export const products = [
     discount: 0,
     description:
       'Breathable linen crop shirt paired with a relaxed wide-leg trouser. Understated, warm-weather elegance.',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['M', 'L', 'XL'],
     stock: 14,
     isFeatured: true,
     isTrending: false,
@@ -61,7 +60,7 @@ export const products = [
     discount: 10,
     description:
       'A draped halter top and high-waist palazzo set in fluid black crepe. Statement dressing for evening occasions.',
-    sizes: ['XS', 'S', 'M', 'L'],
+    sizes: ['M', 'L', 'XL'],
     stock: 5,
     isFeatured: true,
     isTrending: true,
@@ -81,7 +80,7 @@ export const products = [
     discount: 0,
     description:
       'Structured double-breasted jacket with matching cigarette pants in soft beige twill. Boardroom-ready polish.',
-    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    sizes: ['M', 'L', 'XL'],
     stock: 11,
     isFeatured: false,
     isTrending: true,
@@ -101,7 +100,7 @@ export const products = [
     discount: 20,
     description:
       'Hand-embroidered gold thread detailing on a fitted kurta-inspired top and flared pant. Made for celebration.',
-    sizes: ['S', 'M', 'L', 'XL'],
+    sizes: ['M', 'L', 'XL'],
     stock: 6,
     isFeatured: true,
     isTrending: true,
@@ -121,7 +120,7 @@ export const products = [
     discount: 0,
     description:
       'Oversized shirt jacket and straight-leg pant in brushed sage cotton. Off-duty luxury for everyday wear.',
-    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    sizes: ['M', 'L', 'XL'],
     stock: 17,
     isFeatured: false,
     isTrending: false,
